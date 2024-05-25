@@ -101,5 +101,8 @@ class TestState(unittest.TestCase):
     def test_str(self):
         """test that the str method has the correct output"""
         state = State()
-        string = "[State] ({}) {}".format(state.id, state.__dict__)
+        dct = state.__dict__.copy()
+        if dct.get("_sa_instance_state"):
+            dct.pop("_sa_instance_state")
+        string = "[State] ({}) {}".format(state.id, dct)
         self.assertEqual(string, str(state))
