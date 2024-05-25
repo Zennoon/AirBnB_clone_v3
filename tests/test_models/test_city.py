@@ -110,5 +110,8 @@ class TestCity(unittest.TestCase):
     def test_str(self):
         """test that the str method has the correct output"""
         city = City()
-        string = "[City] ({}) {}".format(city.id, city.__dict__)
+        dct = city.__dict__.copy()
+        if dct.get("_sa_instance_state"):
+            dct.pop("_sa_instance_state")
+        string = "[City] ({}) {}".format(city.id, dct)
         self.assertEqual(string, str(city))
