@@ -1,3 +1,15 @@
+#!/usr/bin/python3
+"""
+
+Contains:
+    Functions
+    =========
+    status - Route function for the /api/v1/status url
+
+    stats - Route function for the /api/v1/stats url
+
+"""
+
 from api.v1.views import app_views
 from flask import jsonify
 from models import storage
