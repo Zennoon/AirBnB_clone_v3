@@ -7,6 +7,7 @@ Contains:
 """
 import os
 from flask import Flask
+from flask import jsonify
 from models import storage
 from api.v1.views import app_views
 
@@ -21,6 +22,14 @@ def renew_session(exc):
     reflect any changes made
     """
     storage.close()
+
+
+@app.errorhandler(404)
+def not_found(err):
+    """
+    Error handler for non-found resources
+    """
+    return (jsonify({"error": "Not found"}))
 
 
 if __name__ == "__main__":
