@@ -60,6 +60,8 @@ Classes inherited from Base Model:
 * `def new(self, obj)` - sets in __objects the obj with key <obj class name>.id
 * `def save(self)` - serializes __objects to the JSON file (path: __file_path)
 * ` def reload(self)` -  deserializes the JSON file to __objects
+* `def get(self, cls, id)` - retrieves a single object of the given class having the given id
+* `def count(self, cls)` - retrieves the number of objects of the given class
 
 #### `/tests` directory contains all unit test cases for this project:
 [/test_models/test_base_model.py](/tests/test_models/test_base_model.py) - Contains the TestBaseModel and TestBaseModelDocs classes
@@ -156,6 +158,8 @@ No known bugs at this time.
 ## Authors
 Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
 Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
+Dawit Yifru - [Github](https://github.com/daw22)
+Yunus Kedir - [Github](https://github.com/Zennoon) / [Twitter](https://twitter.com/Zennoon)
 
 Second part of Airbnb: Joann Vuong
 ## License
