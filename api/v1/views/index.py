@@ -10,24 +10,26 @@ from models.user import User
 
 
 classes = {
-    "amenities": Amenity, 
-    "cities": City, 
-    "places": Place, 
-    "reviews": Review, 
-    "states": State, 
+    "amenities": Amenity,
+    "cities": City,
+    "places": Place,
+    "reviews": Review,
+    "states": State,
     "users": User
 }
+
 
 @app_views.route("/status")
 def status():
     """Route function for /api/v1/status"""
     return (jsonify({"status": "OK"}))
 
+
 @app_views.route("/stats")
 def stats():
     """
     Route function for /api/v1/stats
-    
+
     Displays the number of objects of each class
     """
     objs = {}
