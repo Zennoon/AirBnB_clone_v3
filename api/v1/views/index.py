@@ -32,5 +32,5 @@ def stats():
     """
     objs = {}
     for cls in classes.keys():
-        objs[key] = storage.count(classes[cls])
+        objs[cls] = storage.count(classes[cls])
     return (jsonify(objs))
