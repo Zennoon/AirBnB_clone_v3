@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
 Handles REST operations for the User class
-
-CLass handlers
 """
 from flask import abort, jsonify, request
 from api.v1.views import app_views
@@ -60,7 +58,7 @@ def create_user():
     except Exception:
         return ("Not a JSON", 400)
     for attr in ["email", "password"]:
-        if attr not in dct:
+        if dct.get(attr) is None:
             return ("Missing {}".format(attr), 400)
     new_user = User(**dct)
     new_user.save()
