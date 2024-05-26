@@ -90,7 +90,7 @@ def update_city_by_id(city_id):
     try:
         dct = request.get_json()
     except Exception:
-        return ("Not a JSON", 404)
+        return ("Not a JSON", 400)
     for key in dct.keys():
         if key not in ["id", "state_id", "created_at", "updated_at"]:
             setattr(city, key, dct[key])
