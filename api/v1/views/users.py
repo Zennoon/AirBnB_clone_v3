@@ -9,7 +9,13 @@ from api.v1.views import app_views
 from models import storage
 from models.user import User
 
-
+@app_views.route('/users', methods=["GET"])
+def get_all_users():
+    """
+    Retrieves all User instances
+    """
+    all_users = storage.all(User)
+    return (jsonify([user.to_dict() for user in all_users.values()]))
 @app_views.route('/users/<user_id>', methods=['GET'])
 def get_user_by_id(user_id):
     """
