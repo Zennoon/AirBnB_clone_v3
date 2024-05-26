@@ -4,7 +4,7 @@ Handels all default RESTFul API
 actions for Amenity objects
 """
 
-from flask import jsonify, abort, request
+from flask import abort, jsonify, request
 from api.v1.views import app_views
 from models import storage
 from models.amenity import Amenity
