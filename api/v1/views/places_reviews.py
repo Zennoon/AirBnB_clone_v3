@@ -36,6 +36,7 @@ def get_review_by_id(review_id):
         abort(404)
     return (jsonify(review.to_dict()))
 
+
 @app_views.route("/reviews/<review_id>", methods=["DELETE"])
 def delete_review_by_id(review_id):
     """
