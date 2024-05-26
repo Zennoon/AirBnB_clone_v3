@@ -10,10 +10,10 @@ from models import storage
 from models.user import User
 
 
-@app_views.route('/users', methods=["GET"])
+@app_views.route('/users', methods=['GET'])
 def get_all_users():
     """
-    Retrieves all User instances
+    Retrieves the list of all User objects
     """
     all_users = storage.all(User)
     return (jsonify([user.to_dict() for user in all_users.values()]))
@@ -34,7 +34,6 @@ def get_user_by_id(user_id):
 def delete_user_by_id(user_id):
     """
     Route function of DELETE /api/v1/users/<user_id>
-
     Deletes  User instance with given ID if it exists
     """
     user_obj = storage.get(User, user_id)
@@ -49,16 +48,18 @@ def delete_user_by_id(user_id):
 def create_user():
     """
     Route function of POST /api/v1/users
-
     Creates a new User instance with attributes from request body
     """
     try:
         dct = request.get_json()
     except Exception:
         return ("Not a JSON", 400)
-    for attr in ["email", "password"]:
-        if dct.get(attr) is None:
-            return ("Missing {}".format(attr), 400)
+    email = dct.get('email')
+    if email is None:
+        return ('Missing email', 400)
+    password = dct.get('password')
+    if password is None:
+        return ('Missing password', 400)
     new_user = User(**dct)
     new_user.save()
     return (jsonify(new_user.to_dict()), 201)
@@ -68,7 +69,6 @@ def create_user():
 def update_user(user_id):
     """
     Route function for PUT /api/v1/users
-
     Updates User instance with given ID, if it exists
     """
     user_obj = storage.get(User, user_id)
