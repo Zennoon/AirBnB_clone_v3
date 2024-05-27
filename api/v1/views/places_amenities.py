@@ -3,7 +3,7 @@
 Handles RESTful API operations for the relationship between Place
 and Amenity objects
 """
-from flask import abort, jsonify, request
+from flask import abort, jsonify
 from api.v1.views import app_views
 from models import storage
 from models import storage_t
