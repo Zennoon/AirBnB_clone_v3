@@ -144,8 +144,7 @@ def get_places_by_search_params():
             for amenity_id in amenity_ids:
                 amenity = storage.get(Amenity, amenity_id)
                 if amenity is None:
-                    filtered_places = []
-                    break
+                    continue
                 filtered_places = list(
                     filter(
                         lambda place: amenity in place.amenities,
